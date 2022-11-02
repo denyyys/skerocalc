@@ -14,7 +14,7 @@ void calc(int choice);
 
 int main()
 {
-
+	SetConsoleTitle(L"SkeroCalc");
 	int choice;
 	do {
 		system("cls");
