@@ -7,3 +7,6 @@ obsahuje plugy:
 - peta
 - dominik
 - easter egg (Smack)
+
+## Download
+[SkeroCalc 1.0.0](https://github.com/denyyys/skerocalc/releases/tag/release)
