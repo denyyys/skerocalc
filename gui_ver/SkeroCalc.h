@@ -45,6 +45,7 @@ namespace $safeprojectname$ {
 
 
 
+
 	protected:
 
 	private:
@@ -95,11 +96,11 @@ namespace $safeprojectname$ {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Unispace", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Unispace", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(110, 9);
+			this->label2->Location = System::Drawing::Point(95, 20);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(159, 33);
+			this->label2->Size = System::Drawing::Size(197, 39);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"SkeroCalc";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
@@ -129,13 +130,12 @@ namespace $safeprojectname$ {
 			// real_amount
 			// 
 			this->real_amount->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->real_amount->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->real_amount->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->real_amount->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->real_amount->Location = System::Drawing::Point(153, 378);
+			this->real_amount->Location = System::Drawing::Point(142, 378);
 			this->real_amount->Name = L"real_amount";
 			this->real_amount->ReadOnly = true;
-			this->real_amount->Size = System::Drawing::Size(76, 38);
+			this->real_amount->Size = System::Drawing::Size(91, 35);
 			this->real_amount->TabIndex = 5;
 			this->real_amount->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -183,11 +183,13 @@ namespace $safeprojectname$ {
 			this->about->TabIndex = 9;
 			this->about->Text = L"About";
 			this->about->UseVisualStyleBackColor = true;
+			this->about->Click += gcnew System::EventHandler(this, &MyForm::about_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::MediumSeaGreen;
 			this->ClientSize = System::Drawing::Size(384, 461);
 			this->Controls->Add(this->about);
 			this->Controls->Add(this->calculate);
@@ -199,11 +201,13 @@ namespace $safeprojectname$ {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->plug_choice);
 			this->Controls->Add(this->label1);
+			this->DoubleBuffered = true;
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(400, 500);
 			this->MinimumSize = System::Drawing::Size(400, 500);
 			this->Name = L"MyForm";
 			this->ShowIcon = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"SkeroCalc 2.0";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
@@ -214,6 +218,7 @@ namespace $safeprojectname$ {
 		double skera, vysledek;
 		double cena, tax;
 		String^ plug;
+		int counter = 0;
 
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -225,12 +230,16 @@ private: System::Void amount_TextChanged(System::Object^ sender, System::EventAr
 }
 private: System::Void plug_choice_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	plug = plug_choice->Text;
+	String^ blank = "";
+	real_amount->Text = blank;
+	if (plug != "smack") {
+		calculate->Text = "CALCULATE";
+	}
 	if (plug == "vietnamci") {
 		MessageBox::Show("budou to mordy skera tak ara");
 	}
 }
 private: System::Void calculate_Click(System::Object^ sender, System::EventArgs^ e) {
-
 	if (amount->Text->Equals("") || plug_choice->Text->Equals("")) {
 		MessageBox::Show("missing value");
 		amount->Text = "0";
@@ -260,8 +269,30 @@ private: System::Void calculate_Click(System::Object^ sender, System::EventArgs^
 			vysledek = skera * tax;
 			real_amount->Text = Convert::ToString(vysledek);
 		}
+		if (plug == "smack") {
+			real_amount->Text = "infinite";
+			calculate->Text = "NEØEŠ";
+		}
 	}
 }
 
+private: System::Void about_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	counter++;
+	/*
+	Counter tester
+		real_amount->Text = Convert::ToString(counter);
+	*/
+	if (counter >= 5) {
+		MessageBox::Show("smack unlocked");
+		if (!(counter > 5)) {
+			plug_choice->Items->Add("smack");
+		}
+	}
+	else {
+		MessageBox::Show("© 2023 Kybl Enterprise");
+	}
+	
+}
 };
 }
