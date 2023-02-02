@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 namespace $safeprojectname$ {
 
@@ -9,9 +10,7 @@ namespace $safeprojectname$ {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Summary for MyForm
-	/// </summary>
+	
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -24,9 +23,7 @@ namespace $safeprojectname$ {
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
+		
 		~MyForm()
 		{
 			if (components)
@@ -39,25 +36,23 @@ namespace $safeprojectname$ {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::TextBox^ amount;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ real_amount;
+
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ calculate;
+	private: System::Windows::Forms::Button^ about;
+
+
 
 	protected:
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+		
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
+		
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -65,11 +60,11 @@ namespace $safeprojectname$ {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->amount = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->real_amount = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->calculate = (gcnew System::Windows::Forms::Button());
+			this->about = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -95,6 +90,7 @@ namespace $safeprojectname$ {
 			this->plug_choice->Name = L"plug_choice";
 			this->plug_choice->Size = System::Drawing::Size(121, 23);
 			this->plug_choice->TabIndex = 1;
+			this->plug_choice->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::plug_choice_SelectedIndexChanged);
 			// 
 			// label2
 			// 
@@ -128,18 +124,20 @@ namespace $safeprojectname$ {
 			this->amount->Size = System::Drawing::Size(133, 26);
 			this->amount->TabIndex = 4;
 			this->amount->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->amount->TextChanged += gcnew System::EventHandler(this, &MyForm::amount_TextChanged);
 			// 
-			// textBox1
+			// real_amount
 			// 
-			this->textBox1->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->real_amount->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->real_amount->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->real_amount->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox1->Location = System::Drawing::Point(153, 378);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(76, 38);
-			this->textBox1->TabIndex = 5;
+			this->real_amount->Location = System::Drawing::Point(153, 378);
+			this->real_amount->Name = L"real_amount";
+			this->real_amount->ReadOnly = true;
+			this->real_amount->Size = System::Drawing::Size(76, 38);
+			this->real_amount->TabIndex = 5;
+			this->real_amount->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label4
 			// 
@@ -163,38 +161,39 @@ namespace $safeprojectname$ {
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"g";
 			// 
-			// button1
+			// calculate
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->calculate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button1->Location = System::Drawing::Point(128, 259);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(124, 42);
-			this->button1->TabIndex = 8;
-			this->button1->Text = L"CALCULATE";
-			this->button1->UseVisualStyleBackColor = true;
+			this->calculate->Location = System::Drawing::Point(128, 259);
+			this->calculate->Name = L"calculate";
+			this->calculate->Size = System::Drawing::Size(124, 42);
+			this->calculate->TabIndex = 8;
+			this->calculate->Text = L"CALCULATE";
+			this->calculate->UseVisualStyleBackColor = true;
+			this->calculate->Click += gcnew System::EventHandler(this, &MyForm::calculate_Click);
 			// 
-			// button2
+			// about
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->about->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button2->Location = System::Drawing::Point(288, 433);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(96, 27);
-			this->button2->TabIndex = 9;
-			this->button2->Text = L"About";
-			this->button2->UseVisualStyleBackColor = true;
+			this->about->Location = System::Drawing::Point(288, 433);
+			this->about->Name = L"about";
+			this->about->Size = System::Drawing::Size(96, 27);
+			this->about->TabIndex = 9;
+			this->about->Text = L"About";
+			this->about->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(384, 461);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->about);
+			this->Controls->Add(this->calculate);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->real_amount);
 			this->Controls->Add(this->amount);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
@@ -203,7 +202,7 @@ namespace $safeprojectname$ {
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(400, 500);
 			this->MinimumSize = System::Drawing::Size(400, 500);
-			this->Name = L"SkeroCalc 2.0";
+			this->Name = L"MyForm";
 			this->ShowIcon = false;
 			this->Text = L"SkeroCalc 2.0";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -212,11 +211,57 @@ namespace $safeprojectname$ {
 
 		}
 #pragma endregion
+		double skera, vysledek;
+		double cena, tax;
+		String^ plug;
+
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void amount_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void plug_choice_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	plug = plug_choice->Text;
+	if (plug == "vietnamci") {
+		MessageBox::Show("budou to mordy skera tak ara");
+	}
+}
+private: System::Void calculate_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (amount->Text->Equals("") || plug_choice->Text->Equals("")) {
+		MessageBox::Show("missing value");
+		amount->Text = "0";
+	}
+	else {
+		
+		skera = Convert::ToDouble(amount->Text);
+		plug = plug_choice->Text;
+
+		if (plug == "weby") {
+			tax = 0.9;
+			vysledek = skera * tax;
+			real_amount->Text = Convert::ToString(vysledek);
+		}
+		if (plug == "samik") {
+			tax = 0.75;
+			vysledek = skera * tax;
+			real_amount->Text = Convert::ToString(vysledek);
+		}
+		if (plug == "dominik") {
+			tax = 1.3;
+			vysledek = skera * tax;
+			real_amount->Text = Convert::ToString(vysledek);
+		}
+		if (plug == "peta" || plug == "vietnamci") {
+			tax = 1;
+			vysledek = skera * tax;
+			real_amount->Text = Convert::ToString(vysledek);
+		}
+	}
+}
+
 };
 }
