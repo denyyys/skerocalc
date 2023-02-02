@@ -6,6 +6,7 @@ obsahuje plugy:
 - weby
 - peta
 - dominik
+- vietnamci
 - easter egg (Smack)
 
 ## Download
