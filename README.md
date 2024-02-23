@@ -9,6 +9,10 @@ obsahuje plugy:
 - vietnamci
 - easter egg (Smack)
 
+### Linux kompatibilita
+ GUI verze plně funkční pod Wine64
+ testováno na Debian 12 (Bookworm)
+
 ## Download
 [SkeroCalc 1.0.0](https://github.com/denyyys/skerocalc/releases/tag/release) (console)
 
