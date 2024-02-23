@@ -13,3 +13,7 @@ obsahuje plugy:
 [SkeroCalc 1.0.0](https://github.com/denyyys/skerocalc/releases/tag/release) (console)
 
 [SkeroCalc 2.0.3.1](https://github.com/denyyys/skerocalc/releases/tag/release23) (GUI)
+
+### Linux compatibility
+- GUI verze plně funkční pod Wine64
+- testováno na Debian 12 Bookworm
