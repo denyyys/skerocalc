@@ -14,6 +14,8 @@ obsahuje plugy:
 
 [SkeroCalc 2.0.3.2](https://github.com/denyyys/skerocalc/releases/tag/release232) (GUI)
 
+[SkeroCalc95](https://raw.githubusercontent.com/denyyys/skerocalc/refs/heads/main/win9x_ver/SCalc95setup.zip) (win9x, runs on NT as well)
+
 ### Linux compatibility
-- GUI verze plně funkční pod Wine64 na aarch64
-- testováno na Debian 12 Bookworm
+- GUI version fully functional under Wine64 on aarch64
+- tested on Debian 12 Bookworm
