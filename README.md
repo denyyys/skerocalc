@@ -16,6 +16,12 @@ obsahuje plugy:
 
 [SkeroCalc95](https://raw.githubusercontent.com/denyyys/skerocalc/refs/heads/main/win9x_ver/SCalc95setup.zip) (win9x, runs on NT as well)
 
+## Future plans
+ - MacOS / iOS port
+ - MS-DOS port
+ - kyblRTOS port
+ - TempleOS port
+
 ### Linux compatibility
 - GUI version fully functional under Wine64 on aarch64
 - tested on Debian 12 Bookworm
