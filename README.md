@@ -16,10 +16,10 @@ obsahuje plugy:
 
 [SkeroCalc95](https://raw.githubusercontent.com/denyyys/skerocalc/refs/heads/main/win9x_ver/SCalc95setup.zip) (win9x, runs on NT as well)
 
-[SkeroCalc Swift v0.1.1](https://raw.githubusercontent.com/denyyys/skerocalc/refs/heads/main/macOS_ver/SkeroCalc%20v0.1.1.zip) (macOS, very early build)
+[SkeroCalc Swift v1.1]((https://raw.githubusercontent.com/denyyys/skerocalc/refs/heads/main/macOS_ver/SkeroCalc%20v1.1%20macOS.zip)) (macOS, very early build)
 
 ## Future plans
- - MacOS / iOS port
+ - iOS port
  - MS-DOS port
  - kyblRTOS port
  - TempleOS port
