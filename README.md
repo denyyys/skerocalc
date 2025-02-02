@@ -18,8 +18,11 @@ obsahuje plugy:
 
 [SkeroCalc Swift v1.1](https://raw.githubusercontent.com/denyyys/skerocalc/refs/heads/main/macOS_ver/SkeroCalc%20v1.1%20macOS.zip) (macOS)
 
+## iOS version
+the installation package cannot be created due to a Apple Developer Program cost <br><br>
+the app needs to be compiled from source and installed via Xcode
+
 ## Future plans
- - iOS port
  - MS-DOS port
  - kyblRTOS port
  - TempleOS port
