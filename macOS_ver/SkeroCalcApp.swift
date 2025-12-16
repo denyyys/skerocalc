@@ -1,6 +1,6 @@
 //
 //  SkeroCalcApp.swift
-//  SkeroCalc Swift v1.1
+//  SkeroCalc Swift v2.1
 //
 //  Created by Kybl Enterprise 2025.
 //
